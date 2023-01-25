@@ -28,11 +28,13 @@ export class GrntCarousel {
   }
 
   componentDidLoad() {
+    // TODO: find a better way to do type assertion than converting to 'any' beforehand
     const slotted = this.host.shadowRoot.querySelector('slot') as HTMLSlotElement
     this.children = slotted
       .assignedElements()
       .filter(element => element.tagName.toUpperCase() === 'GRNT-CAROUSEL-ITEM')
       .map(element => element as any as GrntCarouselItem)
+
     this.children.forEach(child => (child as any as HTMLElement).style.setProperty('--transition-duration', `${transitionDurationMs}ms`))
 
     this.children[0].setActive(true)
