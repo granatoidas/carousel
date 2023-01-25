@@ -1,4 +1,4 @@
-import { Element, Component, Host, h, State, Prop } from '@stencil/core'
+import { Element, Component, Host, h, State, Prop, Event, EventEmitter } from '@stencil/core'
 import { GrntCarouselItem } from '../grnt-carousel-item/grnt-carousel-item'
 
 const transitionDurationMs = 700
@@ -16,6 +16,8 @@ export class GrntCarousel {
   @State() currentItemIndex = 0
 
   @State() children: GrntCarouselItem[] = []
+
+  @Event() grntCarouselItemChanged: EventEmitter<number>
 
   inTranstition = false
 
@@ -64,6 +66,7 @@ export class GrntCarousel {
       this.children[previousItemIndex].setActive(false)
       this.inTranstition = false
       this.scheduleAutoTransition()
+      this.grntCarouselItemChanged.emit(nextItemIndex)
     }, transitionDurationMs)
   }
 

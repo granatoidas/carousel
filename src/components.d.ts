@@ -15,6 +15,10 @@ export namespace Components {
         "setActive": (active: boolean) => Promise<void>;
     }
 }
+export interface GrntCarouselCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGrntCarouselElement;
+}
 declare global {
     interface HTMLGrntCarouselElement extends Components.GrntCarousel, HTMLStencilElement {
     }
@@ -36,6 +40,7 @@ declare global {
 declare namespace LocalJSX {
     interface GrntCarousel {
         "autoTransitionTimeMs"?: number;
+        "onGrntCarouselItemChanged"?: (event: GrntCarouselCustomEvent<number>) => void;
     }
     interface GrntCarouselItem {
     }
