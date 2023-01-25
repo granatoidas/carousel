@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface GrntCarousel {
+        "autoTransitionTimeMs"?: number;
     }
     interface GrntCarouselItem {
         "moveIntoView": (originSide: 'left' | 'right') => Promise<void>;
@@ -34,6 +35,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface GrntCarousel {
+        "autoTransitionTimeMs"?: number;
     }
     interface GrntCarouselItem {
     }
