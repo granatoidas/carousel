@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, Method, State } from '@stencil/core'
 
 @Component({
   tag: 'grnt-carousel-item',
@@ -6,13 +6,21 @@ import { Component, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class GrntCarouselItem {
+  @State()
+  private active = false
 
-  render() {
-    return (
-      <Host>
-        <slot></slot>
-      </Host>
-    );
+  @Method()
+  async setActive(active: boolean) {
+    this.active = active
   }
 
+  render() {
+    var hostClass = this.active ? 'active' : 'not-active'
+
+    return (
+      <Host class={hostClass}>
+        <slot></slot>
+      </Host>
+    )
+  }
 }

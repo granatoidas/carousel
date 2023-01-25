@@ -1,4 +1,4 @@
-import { Config } from '@stencil/core';
+import { Config } from '@stencil/core'
 
 export const config: Config = {
   namespace: 'carousel',
@@ -15,7 +15,8 @@ export const config: Config = {
     },
     {
       type: 'www',
+      copy: [{ src: 'main.css' }],
       serviceWorker: null, // disable service workers
     },
   ],
-};
+}

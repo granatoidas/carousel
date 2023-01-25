@@ -7,8 +7,10 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface GrntCarousel {
+        "currentItemIndex": number;
     }
     interface GrntCarouselItem {
+        "setActive": (active: boolean) => Promise<void>;
     }
 }
 declare global {
@@ -31,6 +33,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface GrntCarousel {
+        "currentItemIndex"?: number;
     }
     interface GrntCarouselItem {
     }
