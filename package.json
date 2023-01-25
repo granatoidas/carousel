@@ -18,7 +18,7 @@
     "loader/"
   ],
   "scripts": {
-    "start": "npx stencil build --dev --watch --serve",
+    "start": "stencil build --dev --watch --serve",
     "build": "stencil build --watch",
     "generate": "stencil generate"
   },
