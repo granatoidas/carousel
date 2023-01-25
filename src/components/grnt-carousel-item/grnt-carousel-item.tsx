@@ -9,16 +9,41 @@ export class GrntCarouselItem {
   @State()
   private active = false
 
+  @State()
+  private moveIntoViewFromSide?: 'left' | 'right'
+
+  @State()
+  private moveOutOfViewToSide?: 'left' | 'right'
+
   @Method()
   async setActive(active: boolean) {
     this.active = active
+    this.moveIntoViewFromSide = undefined
+    this.moveOutOfViewToSide = undefined
+  }
+
+  @Method()
+  async moveIntoView(originSide: 'left' | 'right') {
+    this.moveIntoViewFromSide = originSide
+  }
+
+  @Method()
+  async moveOutOfView(destinationSide: 'left' | 'right') {
+    this.moveOutOfViewToSide = destinationSide
   }
 
   render() {
-    var hostClass = this.active ? 'active' : 'not-active'
-
     return (
-      <Host class={hostClass}>
+      <Host
+        class={{
+          'active': this.active,
+          'not-active': !this.active,
+          'move-into-view-from-right': this.moveIntoViewFromSide === 'right',
+          'move-into-view-from-left': this.moveIntoViewFromSide === 'left',
+          'move-out-of-view-right': this.moveOutOfViewToSide === 'right',
+          'move-out-of-view-left': this.moveOutOfViewToSide === 'left'
+        }}
+      >
         <slot></slot>
       </Host>
     )
