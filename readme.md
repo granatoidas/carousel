@@ -13,3 +13,4 @@ In your terminal run `npm i` and then `npm run start`. For node version latest L
     * I'm guessing better screen reader support
     * Good touchscreen integration (swipe to change item)
     * Something else I don't know
+* Since the web-compontent styles and code is lazy loaded on first page render you can see all the slides staggered (before the component has a chance to hide them). Not sure how much of an issue this is and currently didn't find a way to circumvent it.
