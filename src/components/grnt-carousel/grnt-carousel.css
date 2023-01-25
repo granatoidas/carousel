@@ -1,3 +1,51 @@
 :host {
+  box-sizing: border-box;
   display: block;
+
+  min-height: 10rem;
+  min-width: 10rem;
+
+  border-radius: 1rem;
+  border: 0.1rem grey solid;
+
+  overflow: hidden;
+}
+
+.main-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.button-container {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translate(-50%);
+
+  display: flex;
+  gap: 0.3rem;
+}
+
+.select-item-button {
+  /* reset button styles */
+  display: block;
+  background: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 1rem;
+  background-color: rgb(89, 139, 139);
+}
+
+.select-item-button:focus-visible,
+.select-item-button:hover {
+  background-color: rgb(134, 210, 210);
+}
+
+.select-item-button-active {
+  background-color: rgb(42, 132, 206);
 }
