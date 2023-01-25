@@ -9,4 +9,7 @@ In your terminal run `npm i` and then `npm run start`. For node version latest L
 
 # Caveats
 * I conciously decided to try out styling the host tag directly instead of making a div inside. This leads to a broken component if the component is styled in a wrong way while using it. However this does leave flexibility of doing edge case styling without playing with `parts`
-* With accesibility I didn't do much regarding aria attributes, however the item select buttons are fully navigatable by keyboard.
+* With accesibility I used buttons to make keyboard navigation possible. I also added aria-label. What's lacking:
+    * I'm guessing better screen reader support
+    * Good touchscreen integration (swipe to change item)
+    * Something else I don't know

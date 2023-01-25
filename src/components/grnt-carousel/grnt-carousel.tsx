@@ -79,7 +79,11 @@ export class GrntCarousel {
           <slot />
           <div class="button-container">
             {this.children.map((_, i) => (
-              <button onClick={() => this.handleSelectItem(i)} class={`select-item-button ${i === this.currentItemIndex && 'select-item-button-active'}`} />
+              <button
+                onClick={() => this.handleSelectItem(i)}
+                class={`select-item-button ${i === this.currentItemIndex && 'select-item-button-active'}`}
+                aria-label={`select carousel item number ${i + 1}`}
+              />
             ))}
           </div>
         </div>
